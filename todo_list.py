@@ -1,5 +1,3 @@
-# 1. Create a menu-driven console application
-
 def display_menu():
     print("\n==== To-Do List Menu ====")
     print("1. Add a task")
@@ -28,7 +26,7 @@ def main():
         elif choice == 2:
             view_tasks(tasks)
         elif choice == 3:
-            task_complete(tasks)
+            task_completed(tasks)
         elif choice == 4:
             task_remove(tasks)
         elif choice == 5:
@@ -55,26 +53,39 @@ def view_tasks(tasks):
             description = (f"{index}. [{status}]. {task['description']}")
         print("===========================")
 
-def task_complete(tasks):
+def task_completed(tasks):
     print("\n==== To-Do List ====")
-    print(tasks.index)
+    for index, task in enumerate(tasks, start=1):
+        status = "completed" if status ["completed"] else " "
+        description = (f"{index}. [{status}], {task['description']}")
+        print(description)
     while True:
-        mark_task_complete = input("Which task would you like to mark as completed? Enter a number: ")
-        if mark_task_complete in tasks:
-            task_complete = True
-        else:
-            print("Please enter a valid choice")
+        try:
+            task_choice = int(input("Select the task you would like to complete(num): "))
+            if 1 <= task_choice <= len(tasks):
+                tasks[task_choice -1]["completed"] = True
+                print(f"Task '{tasks[task_choice -1]}['description']' marked as completed!")
+                break
+            else:
+                print("Please enter a valid task number!")
+        except ValueError:
+            print("Please enter a valid number!")
 
 def task_remove(tasks):
-    
+    print("\n==== To-Do List ====")
+    for index, task in enumerate(tasks, start=1):
+        status = "completed" if status ["completed"] else " "
+        description = (f"{index}. [{status}], {task['description']}")
+        print(description)
+    while True:
+        try:
+            task_choice = int(input("Select the task you would like to remove(num): "))
+            if 1 <= task_choice <= len(tasks):
+                removed_task = tasks.pop(task_choice - 1)
+                print(f"Task '{removed_task['description']}' removed from the list!")
+            break
+        except ValueError:
+            print("Please enter a valid number!")
 
-
-def app_exit():
-    break
-
-# 3. Use a list to store tasks
-# 4. Each task should be a dictionary containing:
-#    - Task description
-#    - Completion status (True/False)
-# 5. Implement input validation where necessary
-# 6. Use functions to organize your code
+def start(display_menu):
+    print("Welcome, what would you like to do today?")
