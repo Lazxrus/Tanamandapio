@@ -31,11 +31,14 @@ def main():
         elif choice == '3':
             options_menu(game)
         elif choice == '4':
-            print("Are you sure?")
-            print("You live to die another day")
-            break
-        else:
-            print("You dare toy with the ancients?")
+            confirm = input("Are you sure you want to exit?(y/n): ").lower()
+            if confirm == 'y':
+                print("You live to die another day")
+                break
+            elif confirm == 'n':
+                print("You dare toy with the ancients?")
+            else:
+                print("Invalid Input. Returning to main menu")
 
 def continue_game(game):
 
@@ -43,9 +46,6 @@ def new_game(game):
 
 
 def options_menu(game):
-    print("Text Speed")
-    for 
-    print("Brightness")
 
 def chapter_1():
 
