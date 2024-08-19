@@ -38,35 +38,55 @@ def main():
             elif confirm == 'n':
                 print("You dare toy with the ancients?")
             else:
-                print("Invalid Input. Returning to main menu")
+                print("Invalid Input.")
 
 def continue_game(game):
+# This function should handle the main gameplay loop.
+# How will you structure the story progression?
+# Consider using a loop to keep the game running until an end condition is met.
 
 def new_game(game):
+    get_name= []
+    while True:
+        get_name = input("Who are you?")
+        for index in get_name:
+            return new_game
+        else:
+            print("Enter a valid name")
+        health = 5
+        inventory = {
+            # progress dependent
+        }
+        if inventory <= 0:
+            print("There's nothing here")
+        abilities = {
+            # progress dependent
+        }
+        level = 1
+        current_location = start_area1
+# Think about what needs to happen when starting a new game.
+# Consider initializing player stats, inventory, and story progress.
+# How will you introduce the game's story and setting?
 
 
 def options_menu(game):
-
-def chapter_1():
-
-
-def scene_1():
-    print("You wake up confused, in an unfamiliar land full of mystic beings and countryside smells, tall grass all around moving ferociously given the strong winds")
-    print("You look down and notice a strange bug holding onto your hand")
-
-
-def user_decision_scene1():
-    
-
+# What settings or options might your game need?
+# Think about how to display these options to the user.
+# How will you handle saving changes to these options?
 
 def item_list():
-    items = {
-
+    weapon_list = {
+        'metal_pipe', 
+        'knife', 
+        'arrow', 
+        'crossbow', 
+        'pistol'
     }
 
 def locations():
     locations = {
-
+        "start_area1": start_area1,
+        
     }
 
 
