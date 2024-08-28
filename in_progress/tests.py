@@ -1,63 +1,50 @@
-def main_menu():
+def check_progress(game_progress):
+    return len(game_progress) > 0
+
+def get_user_choice(self):
+    valid_choices = {1, 2, 3, 4}
+    while True:
+        choice = input("Choose an option: ")
+        if choice in valid_choices:
+            return choice
+        else:
+            print("Please enter a valid choice!")
+
+# main menu options, define progress
+def main_menu(game_progress):
     print("\n====Tanamandapio====")
-    print("1. Continue")
+    if check_progress(game_progress):
+        print("1. Continue")
+    else:
+        print(" ") # Could print something different
     print("2. Start a new game")
     print("3. Options")
     print("4. Quit Game")
     print("========================")
 
-# Mistify later 
-def get_user_choice():
-    valid_choices = {'1', '2', '3', '4'}
-    while True:
-            choice = int(input("Choose an option: "))
-            if choice in valid_choices:
-                return choice
-            else:
-                print("Please enter a valid choice!")
-
 # I don't think it's all wrong, but I don't think it's doing what I want it to do.
 def main():
-    game_progress = []
+    game_progress = {}
+    valid_choices = {1, 2, 3, 4}
     while True:
-        main_menu()
-        choice = get_user_choice()
-        if choice == '1':
+        main_menu(game_progress)
+        choice = get_user_choice(valid_choices)
+        if choice == 1 and check_progress(game_progress):
             continue_game(game_progress)
-        elif choice == '2':
-            new_game(game_progress)
-        elif choice == '3':
+        elif choice == 2:
+            game_progress = new_game() # new_game creates and returns a new game state
+        elif choice == 3:
             options_menu(game_progress)
-        elif choice == '4':
-            confirm = input("Are you sure you want to exit?(y/n): ").lower()
-            if confirm == 'y':
+        elif choice == 4:
+            confirm_exit = input("Are you sure you want to exit?(y/n): ").lower()
+            if confirm_exit == 'y':
                 print("Exit message")
                 break
-            elif confirm == 'n':
-                print("Funny exit message")
+            elif confirm_exit == 'n':
+                print("Funny coming return message")
+
             else:
                 print("Invalid Input.")
-
-def new_game(game_progress):
-    player_name = []
-    while True:
-        try:
-            player_name = input("What's your name?")
-            break
-        except ValueError:
-            print("Invalid input")
-    health = 1
-    inventory = {'empty'}
-    starting_locations = {'start_area1'}
-    print("Initial story jargan")
-    # present a decision all progress is returned to the empty list game_progress = []
-    # return continue_game?
-    # create a separate function for progress, in it make everything return to game_progress, and every action and dictionary calls that function?
-    # for transitions try return and pass?
-
-def progress(game_progress):
-    progress = []
-    return new_game
 
 if __name__ == "__main__":
     main()
