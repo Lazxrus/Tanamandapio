@@ -1,5 +1,0 @@
-status = type("completed") 
-if status["completed"]:
-else: " "
-
-print(type(status))
