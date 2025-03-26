@@ -1,8 +1,12 @@
-# something travel to diff world, find a way out but this time it's actually quite easy to do and you go back to earth only to find it has been destroyed, ravaged and filled with (not known[monster]) nothing is the same, you then notice something coming at you fast you cant make up its shape[what do you do?], after dodging the thing you dodge,choice system, different outcome per choice, 
+# What are the core mechanics of your game? Are they fully planned out?
+# progress based, different options/paths, weapons and skils
 
-# Checks to see if there is progress for the main menu options, that's all I'd use it for
+# How does the choice system work? Do choices only change outcomes, or do they affect gameplay mechanics too?
+
+# How do you want the player to feel throughout the game? (Tension, mystery, powerlessness, etc.)
 def check_progress(game_progress):
     return len(game_progress) > 0
+    # return bool(game_progress)
 
 def get_user_choice():
     valid_choices = {1, 2, 3, 4}
@@ -42,7 +46,7 @@ def main():
             1: lambda: continue_game(game_progress) if "Continue" in menu_options.values() else None,
             2: lambda: new_game(),
             3: lambda: options_menu(game_progress),
-            4: quit_game
+            4: lambda: quit_game
         }
 
         action = choice_actions.get(choice)
@@ -76,7 +80,7 @@ def continue_game(game_progress):
     # Implement game loop here
     pass
 
-def text_output:
+def text_output(locations):
     print("Welcome to Tanamandapio")
 
 # progress dependant items
@@ -125,9 +129,8 @@ def options_menu(game_progress):
 
 def adjust_text_speed():
     while True:
-        
-    pass
-
+        # do something to increase text speed
+        print()
 
 def change_player_name(game_progress):
     new_name = input("Enter player name: ")
